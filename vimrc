@@ -45,6 +45,9 @@ Plugin 'flazz/vim-colorschemes'
 " DeliMate: provides insert mode auto-completion for quotes, parens, brackets
 Plugin 'Raimondi/delimitMate'
 
+" AutoComplPop: Automatically opens popup menu for completions
+Plugin 'vim-scripts/AutoComplPop'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -137,6 +140,12 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
+
+" Omni completion
+set omnifunc=syntaxcomplete
+
+" All folds open when opening a file
+set foldlevel=99
 
 """"""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
