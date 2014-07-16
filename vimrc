@@ -87,10 +87,10 @@ set tabstop=4                   " an indentation every four
 " set number                      " always show line numbers
 " set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set showmatch                   " set show matching parenthesis
-" set ignorecase                  " ignore case when searching
-" set smartcase                   " ignore case if search pattern is all lowercase,
+set ignorecase                  " ignore case when searching
+set smartcase                   " ignore case if search pattern is all lowercase,
 " set hlsearch                    " highlight search terms
-" set incsearch                   " show search matches as you type
+set incsearch                   " show search matches as you type
 " set nobackup
 " set noswapfile
 " filetype plugin indent on       " use plugins that make sense for the file
@@ -98,7 +98,7 @@ set showmatch                   " set show matching parenthesis
 " set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 "" keys remapping
-nmap ; :                    " use ; and avoid holding shift
+nore ; :                    " use ; and avoid holding shift
 
 map <C-h> <C-w>h                " Easy window navigation
 map <C-j> <C-w>j
