@@ -16,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 
 " Multiple Cursors: True Sublime Text style multiple selections for Vim
-" Plugin 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Fugitive Vim: a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
@@ -153,6 +153,10 @@ set omnifunc=syntaxcomplete
 " All folds open when opening a file
 set foldlevel=99
 
+" highlight current line in insert mode
+:autocmd InsertEnter * set cul
+:autocmd InsertLeave * set nocul
+
 """"""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""
@@ -203,6 +207,9 @@ set tw=500
 set autoindent "Auto indent
 set smartindent "Smart indent
 set wrap "Wrap lines
+
+" Python-style folding
+set foldmethod=indent
 
 """"""""""""""""""""
 " => Visual mode related
