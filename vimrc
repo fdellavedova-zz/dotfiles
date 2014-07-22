@@ -16,7 +16,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 
 " Multiple Cursors: True Sublime Text style multiple selections for Vim
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 
 " Fugitive Vim: a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
@@ -52,7 +52,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'Valloric/YouCompleteMe'
 
 " Syntastic: Syntax checking hacks for vim
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -269,3 +269,4 @@ set laststatus=2
 
 " NerdTree
 nmap <leader>ne :NERDTree<cr>
+let NERDTreeIgnore = ['\.pyc$']
