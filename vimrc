@@ -46,7 +46,13 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'Raimondi/delimitMate'
 
 " AutoComplPop: Automatically opens popup menu for completions
-Plugin 'vim-scripts/AutoComplPop'
+" Plugin 'vim-scripts/AutoComplPop'
+
+" YouCompleteMe: A code-completion engine for Vim
+Plugin 'Valloric/YouCompleteMe'
+
+" Syntastic: Syntax checking hacks for vim
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
