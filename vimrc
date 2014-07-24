@@ -90,6 +90,9 @@ let g:mapleader = ","
 " Fast saving
 " nmap <leader>w :w!<cr>
 
+" Easy copying from vim to other program
+set clipboard=unnamedplus
+
 """"""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""
@@ -164,7 +167,7 @@ set foldlevel=99
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme Tomorrow-Night-Eighties 
+colorscheme molokai
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -277,3 +280,7 @@ set laststatus=2
 " NerdTree
 nmap <leader>ne :NERDTree<cr>
 let NERDTreeIgnore = ['\.pyc$']
+
+" Python Mode
+let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
+let g:pymode_lint_on_fly = 1
