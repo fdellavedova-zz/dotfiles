@@ -157,6 +157,10 @@ set foldlevel=99
 :autocmd InsertEnter * set cul
 :autocmd InsertLeave * set nocul
 
+" easier code block indentation
+vnoremap < <gv
+vnoremap > >gv
+
 """"""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""
@@ -164,7 +168,8 @@ set foldlevel=99
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme Tomorrow-Night-Eighties 
+" colorscheme Tomorrow-Night-Eighties 
+colorscheme candycode
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -176,8 +181,12 @@ endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
+
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
+
+" Keep tarminal transparency
+hi Normal ctermbg=none
 
 """"""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
@@ -277,3 +286,6 @@ set laststatus=2
 " NerdTree
 nmap <leader>ne :NERDTree<cr>
 let NERDTreeIgnore = ['\.pyc$']
+
+" Python-Mode
+let g:pymode_lint_on_fly = 0
