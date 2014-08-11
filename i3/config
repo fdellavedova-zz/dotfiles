@@ -22,8 +22,8 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font pango:Hermit Mono 9
 
 # windows
-new_window 1pixel
-new_float 1pixel
+new_window pixel 3
+new_float pixel 3
 
 # colors
 client.focused #cf6a4c #cf6a4c #333333
@@ -45,7 +45,6 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+space exec --no-startup-id gnome-do
 
 # change focus
 bindsym $mod+j focus left
@@ -111,45 +110,37 @@ bindsym XF86Suspend exec gksudo pm-suspend
 bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots/'"
 
 # switch to workspace
-bindsym $mod+1 workspace I:Code
-bindsym $mod+2 workspace II:Web
-bindsym $mod+3 workspace III:IM
-bindsym $mod+4 workspace IV:Music
-bindsym $mod+5 workspace V:Database
-bindsym $mod+6 workspace VI:Game
-bindsym $mod+7 workspace VII:
-bindsym $mod+8 workspace VIII:
-bindsym $mod+9 workspace IX:
-bindsym $mod+0 workspace X:
+bindsym $mod+1 workspace I
+bindsym $mod+2 workspace II
+bindsym $mod+3 workspace III
+bindsym $mod+4 workspace IV
+bindsym $mod+5 workspace V
+bindsym $mod+6 workspace VI
+bindsym $mod+7 workspace VII
+bindsym $mod+8 workspace VIII
+bindsym $mod+9 workspace IX
+bindsym $mod+0 workspace X
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace I:Code
-bindsym $mod+Shift+2 move container to workspace II:Web
-bindsym $mod+Shift+3 move container to workspace III:IM
-bindsym $mod+Shift+4 move container to workspace IV:Music
-bindsym $mod+Shift+5 move container to workspace V:Database
-bindsym $mod+Shift+6 move container to workspace VI:Game
-bindsym $mod+Shift+7 move container to workspace VII:
-bindsym $mod+Shift+8 move container to workspace VIII:
-bindsym $mod+Shift+9 move container to workspace IX:
-bindsym $mod+Shift+0 move container to workspace X:
+bindsym $mod+Shift+1 move container to workspace I
+bindsym $mod+Shift+2 move container to workspace II
+bindsym $mod+Shift+3 move container to workspace III
+bindsym $mod+Shift+4 move container to workspace IV
+bindsym $mod+Shift+5 move container to workspace V
+bindsym $mod+Shift+6 move container to workspace VI
+bindsym $mod+Shift+7 move container to workspace VII
+bindsym $mod+Shift+8 move container to workspace VIII
+bindsym $mod+Shift+9 move container to workspace IX
+bindsym $mod+Shift+0 move container to workspace X
 
 # open some applications in specific workspaces and focus
-assign [class="Sublime_text"] I:Code
-assign [class="Brackets"] I:Code
-assign [class="Firefox"] II:Web
-assign [class="Chromium-browser"] II:Web
-assign [class="Pidgin"] III:IM
-assign [class="Spotify"] IV:Music
-assign [class="Clementine"] IV:Music
-assign [class="Vstudio"] V:Database
-for_window [class="Sublime_text"] focus
-for_window [class="Brackets"] focus
+assign [class="Firefox"] II
+assign [class="Pidgin"] X
+assign [class="Spotify"] IX
+assign [class="Vstudio"] V
 for_window [class="Firefox"] focus
-for_window [class="Chromium-browser"] focus
 for_window [class="Pidgin"] focus
 for_window [class="Spotify"] focus
-for_window [class="Clementine"] focus
 for_window [class="Vstudio"] focus
 
 # remove window borders
@@ -248,26 +239,14 @@ set $white2 #9a875f
 
 exec xsetroot -solid "#e1dce0"
 
-# Workspace names
-workspace "1:Code" output LVDS1
-workspace "2:Web" output LVDS1
-workspace "3:IM" output LVDS1
-workspace "4:Music" output LVDS1
-workspace "5:Database" output LVDS1
-
 # Startup applications
-
-# exec --no-startup-id terminator -c dropdown -p dropdown-solarized-dark -l splitted -T "Le Terminator" -H -H --geometry=1600x900
-# for_window [class="Terminator" instance="dropdown"] floating enable
 
 exec --no-startup-id dropbox start  # Dropbox sync service
 exec --no-startup-id nm-applet  # network manager
 exec --no-startup-id gnome-settings-daemon  # media keys (brightness, volume) and gtk themes
-# exec --no-startup-id feh --bg-scale ~/Pictures/Wallpapers/GKzPR.jpg  # desktop background
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id redshift -l 52:13  # redshift
 exec --no-startup-id xset dpms 300  # screensaver
-exec --no-startup-id shutter --min_at_startup  # shutter
 
 # media keys
 bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3status
