@@ -40,7 +40,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git, fabric, pip, python, virtualenvwrapper, sublime)
+plugins=(git, fabric, pip, python, virtualenvwrapper, sublime, docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,4 +49,10 @@ export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/s
 export WORKON_HOME=~/.venvs 
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
+# Colorized manpages (script in https://gist.github.com/Eltiech/a93054a6ad057d006ade)
+source $HOME/.mancolor.sh
 
+# Base16 Shell
+BASE16_SCHEME="bespin"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL

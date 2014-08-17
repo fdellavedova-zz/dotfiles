@@ -1,0 +1,16 @@
+! Use a nice truetype font and size by default... 
+xterm*faceName:Hermit style=medium 
+xterm*faceSize: 11
+
+! A lot of scrollback...
+xterm*savelines: 16384
+
+! stop output to terminal from jumping down to bottom of scroll again
+xterm*scrollTtyOutput: false
+
+XTerm*locale: true
+
+
+! remember to run 
+! xrdb -merge ~/.Xresources
+! to apply the settings!!

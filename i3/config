@@ -35,7 +35,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec terminator
-bindsym $mod+Return exec terminology -e zsh
+bindsym $mod+Return exec uxterm -e zsh
 
 # kill focused window
 bindsym $mod+Shift+q kill

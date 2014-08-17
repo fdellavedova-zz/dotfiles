@@ -41,6 +41,9 @@ Plugin 'klen/python-mode'
 
 " Colors: one colorscheme pack to rule them all!
 Plugin 'flazz/vim-colorschemes'
+" Base16: 
+" Base16 for Vim
+Plugin 'chriskempson/base16-vim'
 
 " DeliMate: provides insert mode auto-completion for quotes, parens, brackets
 Plugin 'Raimondi/delimitMate'
@@ -171,7 +174,9 @@ vnoremap > >gv
 set t_Co=256
 syntax enable
 set background=dark
-colorscheme candycode
+" Access colors present in 256 colorspace
+let base16colorspace=256  
+colorscheme base16-bespin
 
 " Set extra options when running in GUI mode
 if has("gui_running")
