@@ -39,23 +39,17 @@ Plugin 'kien/ctrlp.vim'
 " Vim PythonMode: PyLint, Rope, Pydoc, breakpoints from box
 Plugin 'klen/python-mode'
 
-" Colors: one colorscheme pack to rule them all!
-Plugin 'flazz/vim-colorschemes'
-" Base16: 
-" Base16 for Vim
+" Base16: Base16 for Vim
 Plugin 'chriskempson/base16-vim'
 
 " DeliMate: provides insert mode auto-completion for quotes, parens, brackets
 Plugin 'Raimondi/delimitMate'
 
-" AutoComplPop: Automatically opens popup menu for completions
-" Plugin 'vim-scripts/AutoComplPop'
-
 " YouCompleteMe: A code-completion engine for Vim
 Plugin 'Valloric/YouCompleteMe'
 
-" Syntastic: Syntax checking hacks for vim
-" Plugin 'scrooloose/syntastic'
+" Vim Signature: Plugin to toggle, display and navigate marks
+Plugin 'kshenoy/vim-signature'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
