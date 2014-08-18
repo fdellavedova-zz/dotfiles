@@ -248,6 +248,7 @@ exec --no-startup-id gnome-settings-daemon  # media keys (brightness, volume) an
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id redshift -l 52:13  # redshift
 exec --no-startup-id xset dpms 300  # screensaver
+exec --no-startup-id gnome-do  # app launcher
 
 # media keys
 bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3status
