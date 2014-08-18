@@ -297,3 +297,6 @@ let NERDTreeIgnore = ['\.pyc$']
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
 let g:pymode_lint_on_fly = 1
+
+" NERD Commenter
+let NERDSpaceDelims = 1 
