@@ -15,9 +15,6 @@ Plugin 'gmarik/Vundle.vim'
 " Vim Airline: lean & mean status/tabline for vim that's light as air
 Plugin 'bling/vim-airline'
 
-" Multiple Cursors: True Sublime Text style multiple selections for Vim
-Plugin 'terryma/vim-multiple-cursors'
-
 " Fugitive Vim: a Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
 
