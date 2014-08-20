@@ -158,6 +158,13 @@ set foldlevel=99
 vnoremap < <gv
 vnoremap > >gv
 
+" Ctrl+r to search for the highlighted text in visual mode
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
+nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
 """"""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""

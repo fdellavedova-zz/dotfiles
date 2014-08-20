@@ -22,8 +22,8 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 font pango:Hermit Mono 9
 
 # windows
-new_window pixel 3
-new_float pixel 3
+new_window pixel 6 
+new_float pixel 6
 
 # colors
 client.focused #cf6a4c #cf6a4c #333333
