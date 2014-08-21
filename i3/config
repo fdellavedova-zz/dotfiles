@@ -249,6 +249,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id redshift -l 52:13  # redshift
 exec --no-startup-id xset dpms 300  # screensaver
 exec --no-startup-id gnome-do  # app launcher
+exec --no-startup-id xcompmgr -cf -r 0 -D 6  # composition
 
 # media keys
 bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3status

@@ -36,6 +36,9 @@ Plugin 'kien/ctrlp.vim'
 " Vim PythonMode: PyLint, Rope, Pydoc, breakpoints from box
 Plugin 'klen/python-mode'
 
+" SimpylFold: No-BS Python code folding for Vim
+Plugin 'tmhedberg/SimpylFold'
+
 " Base16: Base16 for Vim
 Plugin 'chriskempson/base16-vim'
 
