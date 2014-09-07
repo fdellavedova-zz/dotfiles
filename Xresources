@@ -1,6 +1,5 @@
 ! Use a nice truetype font and size by default... 
-xterm*faceName:Hermit style=medium 
-xterm*faceSize: 11
+xterm*faceName: monofur:size=14:antialias=true 
 
 ! A lot of scrollback...
 xterm*savelines: 16384

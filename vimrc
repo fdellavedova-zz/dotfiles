@@ -51,6 +51,9 @@ Plugin 'Valloric/YouCompleteMe'
 " Vim Signature: Plugin to toggle, display and navigate marks
 Plugin 'kshenoy/vim-signature'
 
+" Vim2Haskell: vim2hs :: Vim -> Haskell
+Plugin 'dag/vim2hs'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -177,7 +180,7 @@ syntax enable
 set background=dark
 " Access colors present in 256 colorspace
 let base16colorspace=256  
-colorscheme base16-bespin
+colorscheme base16-default
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -185,6 +188,7 @@ if has("gui_running")
     set guioptions+=e
     set t_Co=256
     set guitablabel=%M\ %t
+    set guifont=monofur\ 14
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
