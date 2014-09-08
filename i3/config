@@ -26,9 +26,12 @@ new_window pixel 6
 new_float pixel 6
 
 # colors
-client.focused #cf6a4c #cf6a4c #333333
-client.focused_inactive #1a1a1a #1a1a1a #cccccc
-client.unfocused #1a1a1a #1a1a1a #cccccc
+# class                 border  backgr. text    indicator
+client.focused          #ff6138 #ff6138 #ffffff #beeb9f
+client.focused_inactive #79bd8f #00a388 #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #ff6138 #900000 #ffffff #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -89,7 +92,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
- bindsym $mod+m focus mode_toggle
+bindsym $mod+m focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -181,62 +184,23 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Make the currently focused window a scratchpad
-	bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
 # Show the first scratchpad window
-	bindsym $mod+minus scratchpad show
+bindsym $mod+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
-        # status_command i3status | i3-wsbar -c "dzen2 -x %x -dock"
-#        colors {
-#            background #151515
-#            statusline #9a875f
-#            focused_workspace $black2 $white2 $black1
-#            active_workspace $black2 $white1 $white2
-#            inactive_workspace $black2 $black1 $white2
-#            urgent_workspace $red2 $red1 #FFFFFF
-#}
 	colors {
 	        background #333333
-                statusline #b3b3b3
+            statusline #b3b3b3
 	        active_workspace #333333 #333333 #ffffff
 	        focused_workspace #333333 #333333 #ffffff
-                inactive_workspace #333333 #333333 #b3b3b3
+            inactive_workspace #333333 #333333 #b3b3b3
 		}
 }
-
-# Colors!
-set $blue #005588
-set $gray1 #4a4a4a
-set $gray2 #333333
-
-# Colors are 1 = dark. 2 = light.
-set $red1 #8c664c
-set $red2 #9f7155
-set $blue1 #646a6d
-set $blue2 #777e82
-set $green1 #746c48
-set $green2 #8f8558
-set $yellow1 #bfba92
-set $yellow2 #e0daac
-set $black1 #332d29
-set $black2 #817267
-set $magenta1 #766872
-set $magenta2 #897796
-set $cyan1 #4b5c5e
-set $cyan2 #556d70
-set $white1 #504339
-set $white2 #9a875f
-
-# Set window borders
-#class border bg text indicator
-#client.focused $black2 $red1 #D8C3B6 $black2
-#client.focused_inactive $black1 $black1 $white2 $black1
-#client.unfocused $black1 $black1 $white2 $black1
-#client.urgent $red2 $red2 #FFFFFF $red2
 
 exec xsetroot -solid "#e1dce0"
 
@@ -244,15 +208,15 @@ exec xsetroot -solid "#e1dce0"
 
 exec --no-startup-id dropbox start  # Dropbox sync service
 exec --no-startup-id nm-applet  # network manager
-exec --no-startup-id gnome-settings-daemon  # media keys (brightness, volume) and gtk themes
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id gnome-settings-daemon  # and gtk themes
+exec --no-startup-id nitrogen --restore  # desktop background
 exec --no-startup-id redshift -l 52:13  # redshift
 exec --no-startup-id xset dpms 300  # screensaver
 exec --no-startup-id gnome-do  # app launcher
 exec --no-startup-id xcompmgr -cf -r 0 -D 6  # composition
 
 # media keys
-bindsym XF86AudioMute exec amixer set Master toggle && killall -USR1 i3status
+bindsym XF86AudioMute exec  amixer -D pulse set Master 1+ toggle && killall -USR1 i3status
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ && killall -USR1 i3status
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- && killall -USR1 i3status
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10

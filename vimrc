@@ -54,6 +54,9 @@ Plugin 'kshenoy/vim-signature'
 " Vim2Haskell: vim2hs :: Vim -> Haskell
 Plugin 'dag/vim2hs'
 
+" Vim Jinja: jinja2 support for vim
+Plugin 'mitsuhiko/vim-jinja'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
