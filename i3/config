@@ -27,18 +27,17 @@ new_float pixel 6
 
 # colors
 # class                 border  backgr. text    indicator
-client.focused          #ff6138 #ff6138 #ffffff #beeb9f
-client.focused_inactive #79bd8f #00a388 #ffffff #484e50
-client.unfocused        #333333 #222222 #888888 #292d2e
-client.urgent           #ff6138 #900000 #ffffff #900000
-# client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.focused           #79bd8f #00a388 #ffffff #484e50
+client.focused_inactive  #333333 #333333 #ffffff #beeb9f
+client.unfocused         #333333 #222222 #888888 #292d2e
+client.urgent            #ff6138 #900000 #ffffff #900000
+# client.placeholder     #000000 #0c0c0c #ffffff #000000
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec terminator
-bindsym $mod+Return exec uxterm -e zsh
+bindsym $mod+Return exec sakura -x zsh # -f "Terminus (TTF)"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -193,12 +192,14 @@ bindsym $mod+minus scratchpad show
 # finds out, if available)
 bar {
         status_command i3status
-	colors {
+	                            #border backgr. text
+    colors {
 	        background #333333
             statusline #b3b3b3
-	        active_workspace #333333 #333333 #ffffff
-	        focused_workspace #333333 #333333 #ffffff
-            inactive_workspace #333333 #333333 #b3b3b3
+	        focused_workspace   #79bd8f #00a388 #333333
+	        active_workspace    #333333 #333333 #ffffff
+            inactive_workspace  #333333 #333333 #b3b3b3
+            urgent_workspace    #ff6138 #ff6138 #333333
 		}
 }
 

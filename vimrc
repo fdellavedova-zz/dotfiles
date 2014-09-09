@@ -35,6 +35,7 @@ Plugin 'kien/ctrlp.vim'
 
 " Vim PythonMode: PyLint, Rope, Pydoc, breakpoints from box
 Plugin 'klen/python-mode'
+" Plugin 'davidhalter/jedi-vim'
 
 " SimpylFold: No-BS Python code folding for Vim
 Plugin 'tmhedberg/SimpylFold'
@@ -188,6 +189,7 @@ colorscheme base16-default
 " Set extra options when running in GUI mode
 if has("gui_running")
     set guioptions-=T
+    highlight Pmenu guibg=#cccccc gui=bold    
     set guioptions+=e
     set t_Co=256
     set guitablabel=%M\ %t
@@ -305,6 +307,7 @@ let NERDTreeIgnore = ['\.pyc$']
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
 let g:pymode_lint_on_fly = 1
+let g:pymode_rope = 0
 
 " NERD Commenter
 let NERDSpaceDelims = 1 
