@@ -113,38 +113,37 @@ bindsym XF86Suspend exec gksudo pm-suspend
 bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots/'"
 
 # switch to workspace
-bindsym $mod+1 workspace I
-bindsym $mod+2 workspace II
-bindsym $mod+3 workspace III
-bindsym $mod+4 workspace IV
-bindsym $mod+5 workspace V
-bindsym $mod+6 workspace VI
-bindsym $mod+7 workspace VII
-bindsym $mod+8 workspace VIII
-bindsym $mod+9 workspace IX
-bindsym $mod+0 workspace X
+bindsym $mod+1 workspace "     I     "
+bindsym $mod+2 workspace "    II     "
+bindsym $mod+3 workspace "    III    "
+bindsym $mod+4 workspace "    IV     "
+bindsym $mod+5 workspace "     V     "
+bindsym $mod+6 workspace "    VI     "
+bindsym $mod+7 workspace "    VII    "
+bindsym $mod+8 workspace "    VIII   "
+bindsym $mod+9 workspace "    IX     "
+bindsym $mod+0 workspace "     X     "
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace I
-bindsym $mod+Shift+2 move container to workspace II
-bindsym $mod+Shift+3 move container to workspace III
-bindsym $mod+Shift+4 move container to workspace IV
-bindsym $mod+Shift+5 move container to workspace V
-bindsym $mod+Shift+6 move container to workspace VI
-bindsym $mod+Shift+7 move container to workspace VII
-bindsym $mod+Shift+8 move container to workspace VIII
-bindsym $mod+Shift+9 move container to workspace IX
-bindsym $mod+Shift+0 move container to workspace X
+bindsym $mod+Shift+1 move container to workspace "     I     "
+bindsym $mod+Shift+2 move container to workspace "    II     "
+bindsym $mod+Shift+3 move container to workspace "    III    "
+bindsym $mod+Shift+4 move container to workspace "    IV     "
+bindsym $mod+Shift+5 move container to workspace "     V     "
+bindsym $mod+Shift+6 move container to workspace "    VI     "
+bindsym $mod+Shift+7 move container to workspace "    VII    "
+bindsym $mod+Shift+8 move container to workspace "    VIII   "
+bindsym $mod+Shift+9 move container to workspace "    IX     "
+bindsym $mod+Shift+0 move container to workspace "     X     "
 
 # open some applications in specific workspaces and focus
-assign [class="Firefox"] II
-assign [class="Pidgin"] X
-assign [class="Spotify"] IX
-assign [class="Vstudio"] V
+assign [class="Firefox"] "    II     "
+assign [class="Pidgin"] "     X     "
+assign [class="Vstudio"] "     V     "
 for_window [class="Firefox"] focus
 for_window [class="Pidgin"] focus
-for_window [class="Spotify"] focus
 for_window [class="Vstudio"] focus
+for_window [class="Spotify"] move scratchpad
 
 # remove window borders
 for_window [class=*] border none
@@ -197,8 +196,8 @@ bar {
 	        background #333333
             statusline #b3b3b3
 	        focused_workspace   #79bd8f #00a388 #333333
-	        active_workspace    #333333 #333333 #ffffff
-            inactive_workspace  #333333 #333333 #b3b3b3
+	        active_workspace    #696969 #333333 #ffffff
+            inactive_workspace  #696969 #333333 #b3b3b3
             urgent_workspace    #ff6138 #ff6138 #333333
 		}
 }
