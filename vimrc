@@ -1,77 +1,37 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Lokaltog/vim-easymotion'
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'chriskempson/base16-vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
 " Vim Airline: lean & mean status/tabline for vim that's light as air
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " Fugitive Vim: a Git wrapper so awesome, it should be illegal
-Plugin 'tpope/vim-fugitive'
-
-" NERDcommenter: Vim plugin for intensely orgasmic commenting
-Plugin 'scrooloose/nerdcommenter'
-
-" NerdTree: A tree explorer plugin for vim.
-Plugin 'scrooloose/nerdtree'
-
-" SearchComplete: Tab completion of words inside of a search ('/')
-Plugin 'vim-scripts/SearchComplete'
-
-" Toggle Mouse: Toggles the mouse focus between Vim and your terminal emulator, allowing terminal emulator mouse commands, like copy/paste
-Plugin 'nvie/vim-togglemouse'
-
-" CtrlP: Fuzzy file, buffer, mru, tag, etc finder.
-Plugin 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
 
 " Vim PythonMode: PyLint, Rope, Pydoc, breakpoints from box
-Plugin 'klen/python-mode'
-" Plugin 'davidhalter/jedi-vim'
+Plug 'klen/python-mode', { 'for': 'python' }
+" Plug 'davidhalter/jedi-vim'
 
 " SimpylFold: No-BS Python code folding for Vim
-Plugin 'tmhedberg/SimpylFold'
-
-" Base16: Base16 for Vim
-Plugin 'chriskempson/base16-vim'
+Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 
 " DeliMate: provides insert mode auto-completion for quotes, parens, brackets
-Plugin 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
 " YouCompleteMe: A code-completion engine for Vim
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 
-" Vim Signature: Plugin to toggle, display and navigate marks
-Plugin 'kshenoy/vim-signature'
+" Vim Signature: Plug to toggle, display and navigate marks
+Plug 'kshenoy/vim-signature'
 
-" Vim2Haskell: vim2hs :: Vim -> Haskell
-Plugin 'dag/vim2hs'
+call plug#end()
 
-" Vim Jinja: jinja2 support for vim
-Plugin 'mitsuhiko/vim-jinja'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList          - list configured plugins
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 """"""""""""""""""""""""""""""""""""""""""
 " => General
@@ -175,6 +135,9 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 nnoremap <silent><A-j> :set paste<CR>m`o<Esc>``:set nopaste<CR>
 nnoremap <silent><A-k> :set paste<CR>m`O<Esc>``:set nopaste<CR>
 
+" close the preview window for autocompletion
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 """"""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""
@@ -311,3 +274,22 @@ let g:pymode_rope = 0
 
 " NERD Commenter
 let NERDSpaceDelims = 1 
+
+" Unite.vim
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+"" navigate mru
+"nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
+" navigate buffer
+"nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
+" navigate application
+"nnoremap <Leader>f :Unite grep:.<cr>
+" navigate files
+"nnoremap <leader>p :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
+
+nnoremap <leader>t :<C-u>Unite -no-split -buffer-name=files   -start-insert file_rec/async:!<cr>
+nnoremap <leader>f :Unite -no-split -buffer-name=files   -start-insert file<cr>
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -buffer-name=outline -start-insert outline<cr>
+nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank    history/yank<cr>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer  buffer<cr>
