@@ -2,32 +2,16 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
-Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite-outline'
 Plug 'Lokaltog/vim-easymotion'
-
 Plug 'chriskempson/base16-vim'
-
-" Vim Airline: lean & mean status/tabline for vim that's light as air
-Plug 'bling/vim-airline'
-
-" Fugitive Vim: a Git wrapper so awesome, it should be illegal
+Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
-
-" Vim PythonMode: PyLint, Rope, Pydoc, breakpoints from box
 Plug 'klen/python-mode', { 'for': 'python' }
-" Plug 'davidhalter/jedi-vim'
-
-" SimpylFold: No-BS Python code folding for Vim
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-
-" DeliMate: provides insert mode auto-completion for quotes, parens, brackets
 Plug 'Raimondi/delimitMate'
-
-" YouCompleteMe: A code-completion engine for Vim
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
-
-" Vim Signature: Plug to toggle, display and navigate marks
 Plug 'kshenoy/vim-signature'
 
 call plug#end()
@@ -275,58 +259,12 @@ let g:pymode_rope = 0
 " NERD Commenter
 let NERDSpaceDelims = 1 
 
-" ==== Unite ======================= {{{
-" ==================================
+" Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#profile('buffer', 'ignorecase', 1)
 let g:unite_source_history_yank_enable = 1
-let g:unite_force_overwrite_statusline = 0
-if executable('ag')
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-let g:unite_source_grep_recursive_opt = ''
-endif
-call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
-\ 'ignore_pattern', join([
-\ '\.git/',
-\ '\.sass-cache/',
-\ '\vendor/',
-\ '\node_modules/',
-\ ], '\|'))
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-let b:SuperTabDisabled=1
-imap <buffer> <C-j> <Plug>(unite_select_next_line)
-imap <buffer> <C-k> <Plug>(unite_select_previous_line)
-imap <buffer> <c-a> <Plug>(unite_choose_action)
-imap <silent><buffer><expr> <C-s> unite#do_action('split')
-imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction
-" The prefix key
-nnoremap [unite] <Nop>
-nmap <space> [unite]
-" General purpose
-nnoremap [unite]<space> :Unite -no-split -start-insert source<cr>
-" Files
-nnoremap [unite]f :Unite -no-split -start-insert file_rec/async<cr>
-" Files in rails
-nnoremap [unite]rm :Unite -no-split -start-insert -input=app/models/ file_rec/async<cr>
-nnoremap [unite]rv :Unite -no-split -start-insert -input=app/views/ file_rec/async<cr>
-nnoremap [unite]ra :Unite -no-split -start-insert -input=app/assets/ file_rec/async<cr>
-nnoremap [unite]rs :Unite -no-split -start-insert -input=spec/ file_rec/async<cr>
-" Grepping
-nnoremap [unite]g :Unite -no-split grep:.<cr>
-nnoremap [unite]d :Unite -no-split grep:.:-s:\(TODO\|FIXME\)<cr>
-" Content
-nnoremap [unite]o :Unite -no-split -start-insert -auto-preview outline<cr>
-nnoremap [unite]l :Unite -no-split -start-insert line<cr>
-nnoremap [unite]t :!retag<cr>:Unite -no-split -auto-preview -start-insert tag<cr>
-" Quickly switch between recent things
-nnoremap [unite]F :Unite -no-split buffer tab file_mru directory_mru<cr>
-nnoremap [unite]b :Unite -no-split buffer<cr>
-nnoremap [unite]m :Unite -no-split file_mru<cr>
-" Yank history
-nnoremap [unite]y :Unite -no-split history/yank<cr>
+nnoremap <leader>f :<C-u>Unite -no-split -start-insert -buffer-name=files file_rec/async:!<CR>
+nnoremap <leader>y :<C-u>Unite -no-split -start-insert history/yank<CR>
+nnoremap <leader>o :<C-u>Unite -no-split -start-insert outline<CR>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -profile-name=buffer -start-insert buffer<cr>
+nnoremap <leader>m :<C-u>Unite -no-split -start-insert file_mru directory_mru<CR>
