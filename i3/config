@@ -145,6 +145,8 @@ for_window [class="Pidgin"] focus
 for_window [class="Vstudio"] focus
 for_window [class="Spotify"] move scratchpad
 
+for_window [class="zeal"] floating enable
+
 # remove window borders
 for_window [class=*] border none
 
