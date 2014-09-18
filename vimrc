@@ -248,6 +248,7 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``  " trim white spacec on save"
 """"""""""""""""""""""""""""""""""""""""""
 " airline
 let g:airline_theme  = 'tomorrow'
+let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
 " NerdTree
@@ -270,10 +271,10 @@ let g:unite_prompt='» '
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
 let g:unite_winheight = 10
-nnoremap <leader>f :<C-u>Unite -no-split  -auto-preview -buffer-name=files file_rec/async:!<CR>
+nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files file_rec/async:!<CR>
 nnoremap <leader>y :<C-u>Unite -no-split history/yank<CR>
-nnoremap <leader>o :<C-u>Unite -no-split -aut-preview outline<CR>
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -quick-match -profile-name=buffer buffer<cr>
+nnoremap <leader>o :<C-u>Unite -no-split -auto-preview outline<CR>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -profile-name=buffer buffer<cr>
 nnoremap <leader>m :<C-u>Unite -no-split file_mru directory_mru<CR>
 nnoremap <leader>g :<C-u>Unite -no-split grep:.<cr>
 nnoremap <leader>l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
