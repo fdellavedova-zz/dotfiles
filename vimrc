@@ -278,3 +278,4 @@ nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -profile-name=buffe
 nnoremap <leader>m :<C-u>Unite -no-split file_mru directory_mru<CR>
 nnoremap <leader>g :<C-u>Unite -no-split grep:.<cr>
 nnoremap <leader>l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=register register<CR>
