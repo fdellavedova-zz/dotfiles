@@ -1,3 +1,5 @@
+set nocompatible
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/unite.vim'
@@ -8,6 +10,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
+Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'Raimondi/delimitMate'
@@ -262,9 +265,15 @@ let NERDSpaceDelims = 1
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom#profile('buffer', 'ignorecase', 1)
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_prompt='» '
+let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
-nnoremap <leader>f :<C-u>Unite -no-split -start-insert -buffer-name=files file_rec/async:!<CR>
-nnoremap <leader>y :<C-u>Unite -no-split -start-insert history/yank<CR>
-nnoremap <leader>o :<C-u>Unite -no-split -start-insert outline<CR>
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -profile-name=buffer -start-insert buffer<cr>
-nnoremap <leader>m :<C-u>Unite -no-split -start-insert file_mru directory_mru<CR>
+let g:unite_winheight = 10
+nnoremap <leader>f :<C-u>Unite -no-split  -auto-preview -buffer-name=files file_rec/async:!<CR>
+nnoremap <leader>y :<C-u>Unite -no-split history/yank<CR>
+nnoremap <leader>o :<C-u>Unite -no-split -aut-preview outline<CR>
+nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -quick-match -profile-name=buffer buffer<cr>
+nnoremap <leader>m :<C-u>Unite -no-split file_mru directory_mru<CR>
+nnoremap <leader>g :<C-u>Unite -no-split grep:.<cr>
+nnoremap <leader>l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
