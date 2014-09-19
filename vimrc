@@ -248,7 +248,7 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``  " trim white spacec on save"
 " => Plugin-specific configuration
 """"""""""""""""""""""""""""""""""""""""""
 " airline
-let g:airline_theme  = 'tomorrow'
+let g:airline_theme  = 'base16'
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
