@@ -16,6 +16,7 @@ Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
+Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
@@ -258,7 +259,8 @@ let NERDTreeIgnore = ['\.pyc$']
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
 let g:pymode_lint_on_fly = 1
-let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_lint_cwindow = 0
 
 " NERD Commenter
 let NERDSpaceDelims = 1 
