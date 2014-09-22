@@ -9,6 +9,7 @@ Plug 'Shougo/unite-outline'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
@@ -67,7 +68,7 @@ set ruler
 " set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
-" set hid
+set hid
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -255,6 +256,7 @@ set laststatus=2
 " NerdTree
 nmap <leader>ne :NERDTree<cr>
 let NERDTreeIgnore = ['\.pyc$']
+autocmd VimEnter * NERDTree
 
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
@@ -267,17 +269,48 @@ let NERDSpaceDelims = 1
 
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#custom#profile('buffer', 'ignorecase', 1)
 call unite#filters#sorter_default#use(['sorter_rank'])
-let g:unite_prompt='» '
+
+call unite#custom#profile('buffer', 'ignorecase', 1)
+call unite#custom#profile('default', 'context', {'prompt': '>> ', 'winheight': 15})
+call unite#custom#source('default', 'filters', ['matcher_hide_hidden_files'])
+
+call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
+    \ 'ignore_pattern', join([
+    \ '\.git/',
+    \ '\.ropeproject/',
+    \ '.pyc',
+    \ ], '\|'))
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
-let g:unite_winheight = 10
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files file_rec/async:!<CR>
-nnoremap <leader>y :<C-u>Unite -no-split history/yank<CR>
-nnoremap <leader>o :<C-u>Unite -no-split -auto-preview outline<CR>
-nnoremap <leader>e :<C-u>Unite -no-split -buffer-name=buffer -profile-name=buffer buffer<cr>
-nnoremap <leader>m :<C-u>Unite -no-split file_mru directory_mru<CR>
-nnoremap <leader>g :<C-u>Unite -no-split grep:.<cr>
-nnoremap <leader>l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-nnoremap <leader>r :<C-u>Unite -no-split -buffer-name=register register<CR>
+
+" General fuzzy search
+nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+" Quick registers
+nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
+" Quick buffer and mru
+nnoremap <silent> <leader>u :<C-u>Unite -buffer-name=buffers file_mru buffer<CR>
+" Quick yank history
+nnoremap <silent> <leader>y :<C-u>Unite -buffer-name=yanks history/yank<CR>
+" Quick outline
+nnoremap <silent> <leader>o :<C-u>Unite -buffer-name=outline -vertical outline<CR>
+" Quick sources
+nnoremap <silent> <leader>a :<C-u>Unite -buffer-name=sources source<CR>
+" Quickly switch lcd
+nnoremap <silent> <leader>d :<C-u>Unite -buffer-name=change-cwd -default-action=cd directory_mru directory_rec/async<CR>
+" Quick file search
+nnoremap <silent> <leader>f :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
+" Quick grep from cwd
+nnoremap <silent> <leader>g :<C-u>Unite -buffer-name=grep grep:.<CR>
+" Quick line using the word under cursor
+" nnoremap <silent> <leader>l :<C-u>UniteWithCursorWord -buffer-name=search_file line<CR>
+" Quick line
+nnoremap <silent> <leader>l :<C-u>Unite -buffer-name=search_file line<CR>
+" Quick MRU search
+nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mru file_mru<CR>
+" Quick find
+nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
+" Quick commands
+nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
+" Quick bookmarks
+nnoremap <silent> <leader>b :<C-u>Unite -buffer-name=bookmarks bookmark<CR>
