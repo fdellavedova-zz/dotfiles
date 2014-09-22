@@ -283,6 +283,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
     \ ], '\|'))
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
+let g:unite_data_directory = "~/.unite"
 
 " General fuzzy search
 nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
@@ -314,3 +315,4 @@ nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
 " Quick bookmarks
 nnoremap <silent> <leader>b :<C-u>Unite -buffer-name=bookmarks bookmark<CR>
+
