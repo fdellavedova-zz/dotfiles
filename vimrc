@@ -249,9 +249,21 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``  " trim white spacec on save"
 " => Plugin-specific configuration
 """"""""""""""""""""""""""""""""""""""""""
 " airline
+set laststatus=2
 let g:airline_theme  = 'base16'
 let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" with the buffer number on top, switch buffer with leader+buffer num
+nnoremap <leader>1 :buffer 1<CR>
+nnoremap <leader>2 :buffer 2<CR>
+nnoremap <leader>3 :buffer 3<CR>
+nnoremap <leader>4 :buffer 4<CR>
+nnoremap <leader>5 :buffer 5<CR>
+nnoremap <leader>6 :buffer 6<CR>
+nnoremap <leader>7 :buffer 7<CR>
+nnoremap <leader>8 :buffer 8<CR>
+nnoremap <leader>9 :buffer 9<CR>
+
 
 " NerdTree
 nmap <leader>ne :NERDTree<cr>
@@ -266,6 +278,20 @@ let g:pymode_lint_cwindow = 0
 
 " NERD Commenter
 let NERDSpaceDelims = 1 
+
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
 
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
