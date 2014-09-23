@@ -286,11 +286,9 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_data_directory = "~/.unite"
 
 " General fuzzy search
-nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async file/new directory/new<CR>
 " Quick registers
 nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
-" Quick buffer and mru
-nnoremap <silent> <leader>u :<C-u>Unite -buffer-name=buffers file_mru buffer<CR>
 " Quick yank history
 nnoremap <silent> <leader>y :<C-u>Unite -buffer-name=yanks history/yank<CR>
 " Quick outline
@@ -299,8 +297,6 @@ nnoremap <silent> <leader>o :<C-u>Unite -buffer-name=outline -vertical outline<C
 nnoremap <silent> <leader>a :<C-u>Unite -buffer-name=sources source<CR>
 " Quickly switch lcd
 nnoremap <silent> <leader>d :<C-u>Unite -buffer-name=change-cwd -default-action=cd directory_mru directory_rec/async<CR>
-" Quick file search
-nnoremap <silent> <leader>f :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
 " Quick grep from cwd
 nnoremap <silent> <leader>g :<C-u>Unite -buffer-name=grep grep:.<CR>
 " Quick line using the word under cursor
@@ -308,11 +304,9 @@ nnoremap <silent> <leader>g :<C-u>Unite -buffer-name=grep grep:.<CR>
 " Quick line
 nnoremap <silent> <leader>l :<C-u>Unite -buffer-name=search_file line<CR>
 " Quick MRU search
-nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mru file_mru<CR>
+nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mapping mapping<CR>
 " Quick find
 nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
 " Quick commands
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
-" Quick bookmarks
-nnoremap <silent> <leader>b :<C-u>Unite -buffer-name=bookmarks bookmark<CR>
 
