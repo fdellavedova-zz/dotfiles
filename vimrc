@@ -14,7 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
@@ -278,8 +278,6 @@ let g:pymode_rope_completion = 0
 let g:pymode_lint_cwindow = 0
 
 " Emmet
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key='<C-Z>'
 
 " NERD Commenter
@@ -303,7 +301,7 @@ endfunction
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-call unite#custom#profile('buffer', 'ignorecase', 1)
+" call unite#custom#profile('buffer', 'ignorecase', 1)
 call unite#custom#profile('default', 'context', {'prompt': '>> ', 'winheight': 15})
 call unite#custom#source('default', 'filters', ['matcher_hide_hidden_files'])
 
