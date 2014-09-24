@@ -14,7 +14,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
@@ -270,6 +269,9 @@ nnoremap <leader>9 :buffer 9<CR>
 nmap <leader>ne :NERDTree<cr>
 let NERDTreeIgnore = ['\.pyc$']
 autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd l
+autocmd BufNew * wincmd l
 
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
@@ -282,7 +284,6 @@ let g:user_emmet_leader_key='<C-Z>'
 
 " NERD Commenter
 let NERDSpaceDelims = 1 
-
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Close all open buffers on entering a window if the only
