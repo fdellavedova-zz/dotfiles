@@ -269,7 +269,6 @@ nnoremap <leader>9 :buffer 9<CR>
 " NerdTree
 nmap <leader>ne :NERDTree<cr>
 let NERDTreeIgnore = ['\.pyc$']
-autocmd VimEnter * NERDTree
 
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
