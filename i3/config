@@ -27,11 +27,14 @@ new_float pixel 6
 
 # colors
 # class                 border  backgr. text    indicator
-client.focused           #79bd8f #00a388 #ffffff #484e50
-client.focused_inactive  #333333 #333333 #ffffff #beeb9f
-client.unfocused         #333333 #222222 #888888 #292d2e
-client.urgent            #ff6138 #900000 #ffffff #900000
-# client.placeholder     #000000 #0c0c0c #ffffff #000000
+# client.focused           #79bd8f #00a388 #ffffff #484e50
+# client.focused_inactive  #333333 #333333 #ffffff #beeb9f
+# client.unfocused         #333333 #222222 #888888 #292d2e
+# client.urgent            #ff6138 #900000 #ffffff #900000
+client.focused #3498DB #3498DB #ECF0F1 #2ECC71
+client.unfocused #3498DB #2C3E50 #ECF0F1 #2C3E50
+client.focused_inactive #3498DB #2C3E50 #ECF0F1 #2C3E50
+client.urgent #3498DB #2C3E50 #ECF0F1 #2C3E50
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -113,33 +116,33 @@ bindsym XF86Suspend exec gksudo pm-suspend
 bindsym Print exec "scrot -e 'mv $f ~/Pictures/Screenshots/'"
 
 # switch to workspace
-bindsym $mod+1 workspace "     I     "
-bindsym $mod+2 workspace "    II     "
-bindsym $mod+3 workspace "    III    "
-bindsym $mod+4 workspace "    IV     "
-bindsym $mod+5 workspace "     V     "
-bindsym $mod+6 workspace "    VI     "
-bindsym $mod+7 workspace "    VII    "
-bindsym $mod+8 workspace "    VIII   "
-bindsym $mod+9 workspace "    IX     "
-bindsym $mod+0 workspace "     X     "
+bindsym $mod+1 workspace "      I      "
+bindsym $mod+2 workspace "     II      "
+bindsym $mod+3 workspace "     III     "
+bindsym $mod+4 workspace "     IV      "
+bindsym $mod+5 workspace "      V      "
+bindsym $mod+6 workspace "     VI      "
+bindsym $mod+7 workspace "     VII     "
+bindsym $mod+8 workspace "     VIII    "
+bindsym $mod+9 workspace "     IX      "
+bindsym $mod+0 workspace "      X      "
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace "     I     "
-bindsym $mod+Shift+2 move container to workspace "    II     "
-bindsym $mod+Shift+3 move container to workspace "    III    "
-bindsym $mod+Shift+4 move container to workspace "    IV     "
-bindsym $mod+Shift+5 move container to workspace "     V     "
-bindsym $mod+Shift+6 move container to workspace "    VI     "
-bindsym $mod+Shift+7 move container to workspace "    VII    "
-bindsym $mod+Shift+8 move container to workspace "    VIII   "
-bindsym $mod+Shift+9 move container to workspace "    IX     "
-bindsym $mod+Shift+0 move container to workspace "     X     "
+bindsym $mod+Shift+1 move container to workspace "      I      "
+bindsym $mod+Shift+2 move container to workspace "     II      "
+bindsym $mod+Shift+3 move container to workspace "     III     "
+bindsym $mod+Shift+4 move container to workspace "     IV      "
+bindsym $mod+Shift+5 move container to workspace "      V      "
+bindsym $mod+Shift+6 move container to workspace "     VI      "
+bindsym $mod+Shift+7 move container to workspace "     VII     "
+bindsym $mod+Shift+8 move container to workspace "     VIII    "
+bindsym $mod+Shift+9 move container to workspace "     IX      "
+bindsym $mod+Shift+0 move container to workspace "      X      "
 
 # open some applications in specific workspaces and focus
-assign [class="Firefox"] "    II     "
-assign [class="Pidgin"] "     X     "
-assign [class="Vstudio"] "     V     "
+assign [class="Firefox"] "     II      "
+assign [class="Pidgin"] "      X      "
+assign [class="Vstudio"] "      V      "
 for_window [class="Firefox"] focus
 for_window [class="Pidgin"] focus
 for_window [class="Vstudio"] focus
@@ -194,14 +197,14 @@ bindsym $mod+minus scratchpad show
 bar {
         status_command i3status
 	                            #border backgr. text
-    colors {
-	        background #333333
-            statusline #b3b3b3
-	        focused_workspace   #79bd8f #00a388 #333333
-	        active_workspace    #696969 #333333 #ffffff
-            inactive_workspace  #696969 #333333 #b3b3b3
-            urgent_workspace    #ff6138 #ff6138 #333333
-		}
+     colors {
+        statusline #ECF0F1
+        background #2C3E50
+        focused_workspace #3498DB #2C3E50 #f5f5f5
+        active_workspace #1ABC9C #2C3E50 #BDC3C7
+        inactive_workspace #2C3E50 #2C3E50 #BDC3C7
+        urgent_workspace #f92672 #2C3E50 #BDC3C7
+}
 }
 
 exec xsetroot -solid "#e1dce0"
