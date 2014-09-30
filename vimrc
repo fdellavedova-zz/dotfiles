@@ -140,7 +140,10 @@ colorscheme base16-default
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guioptions-=T
+    set guioptions-=T  " remove menu bar
+    set guioptions-=m  " remover toolbar
+    set guioptions-=r  " remove right-hand scrollbar
+    set guioptions-=L  " remove left-hand scrollbar
     highlight Pmenu guibg=#cccccc gui=bold    
     set guioptions+=e
     set t_Co=256
