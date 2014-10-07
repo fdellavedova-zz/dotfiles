@@ -319,6 +319,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
     \ '\.ropeproject/',
     \ '.pyc',
     \ ], '\|'))
+call unite#custom_source('file_mru', 'max_candidates', 4)
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
 let g:unite_data_directory = "~/.unite"
