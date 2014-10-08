@@ -134,6 +134,8 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" different color after 80th column
+let &colorcolumn=join(range(81,999),",")
 
 """"""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
