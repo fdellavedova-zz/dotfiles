@@ -48,6 +48,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 export WORKON_HOME=~/.venvs 
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+export TERM=xterm-256color
 
 # Colorized manpages (script in https://gist.github.com/Eltiech/a93054a6ad057d006ade)
 source $HOME/.mancolor.sh
