@@ -1,4 +1,4 @@
-# Path to your oh-my-zsh configuration.
+# Path to your oh-my-zsh configuration.  
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -57,3 +57,18 @@ source $HOME/.mancolor.sh
 BASE16_SCHEME="bespin"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+# antigen plugin manager
+source "$HOME/.antigen/antigen.zsh"
+
+antigen-use oh-my-zsh
+antigen-bundle git
+antigen-bundle zsh-users/zsh-syntax-highlighting
+antigen-bundle zsh-users/zsh-history-substring-search
+antigen-bundle git
+antigen-bundle arialdomartini/oh-my-git
+antigen theme arialdomartini/oh-my-git-themes arialdo-granzestyle
+
+antigen theme robbyrussell
+
+antigen-apply
