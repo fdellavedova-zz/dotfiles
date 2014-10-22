@@ -23,7 +23,7 @@ font pango:Hermit Mono 9
 
 # windows
 new_window pixel 6 
-new_float pixel 0
+new_float pixel 6
 
 # colors
 # class                 border  backgr. text    indicator
@@ -144,10 +144,9 @@ for_window [class="Pidgin"] focus
 for_window [class="Vstudio"] focus
 for_window [class="Spotify"] move scratchpad
 
-for_window [class="zeal"] floating enable
 
 # remove window borders
-for_window [class=*] border none
+for_window [class="Do"] border none
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
