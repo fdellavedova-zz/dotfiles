@@ -56,3 +56,23 @@ source $HOME/.mancolor.sh
 BASE16_SCHEME="bespin"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
+
+# Autocompletion
+autoload predict-on
+predict-on
+
+# Antigen plugin manager
+source $HOME/.antigen/antigen.zsh
+
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle docker
+antigen bundle pip
+antigen bundle python
+antigen bundle command-not-found
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+
+antigen theme jnrowe
+
+antigen apply
