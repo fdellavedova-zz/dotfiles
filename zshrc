@@ -57,10 +57,6 @@ BASE16_SCHEME="bespin"
 BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 
-# Autocompletion
-autoload predict-on
-predict-on
-
 # Antigen plugin manager
 source $HOME/.antigen/antigen.zsh
 
@@ -76,3 +72,6 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme jnrowe
 
 antigen apply
+
+# LMAO
+fortune -s -n 300 | cowsay | lolcat 
