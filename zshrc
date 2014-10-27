@@ -74,4 +74,4 @@ antigen theme jnrowe
 antigen apply
 
 # LMAO
-fortune -s -n 300 | cowsay | lolcat 
+fortune -s -n 300 | cowsay 
