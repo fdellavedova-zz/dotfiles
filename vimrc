@@ -6,10 +6,10 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimfiler.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
@@ -278,9 +278,7 @@ nnoremap <leader>7 :buffer 7<CR>
 nnoremap <leader>8 :buffer 8<CR>
 nnoremap <leader>9 :buffer 9<CR>
 
-
-" NerdTree
-nmap <leader>ne :NERDTree<cr>
+" Vimfiler
 let NERDTreeIgnore = ['\.pyc$']
 
 " Python Mode
@@ -353,4 +351,6 @@ nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mapping mapping<CR>
 nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
 " Quick commands
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
+" Vimfiler
+nnoremap <silent> <leader>f :VimFiler<CR>
 
