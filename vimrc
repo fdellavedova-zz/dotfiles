@@ -19,6 +19,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
+Plug 'myusuf3/numbers.vim'
 
 call plug#end()
 

@@ -142,7 +142,7 @@ assign [class="Vstudio"] "      V      "
 for_window [class="Firefox"] focus
 for_window [class="Pidgin"] focus
 for_window [class="Vstudio"] focus
-for_window [class="Spotify"] move scratchpad
+# for_window [class="Spotify"] move scratchpad
 
 
 # remove window borders
