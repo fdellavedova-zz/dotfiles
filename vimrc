@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala'}
 Plug 'mattn/emmet-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
@@ -51,6 +52,9 @@ set clipboard=unnamedplus
 """"""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""
+" Show line numbers
+set number
+
 " Enable mouse
 set mouse=a
 
