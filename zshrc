@@ -46,6 +46,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+export PATH=$PATH:$HOME/bin/sbt/bin
 export WORKON_HOME=~/.venvs 
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
@@ -72,6 +73,9 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen theme jnrowe
 
 antigen apply
+
+# z
+. $HOME/.z.sh
 
 # LMAO
 fortune -s -n 300 | cowsay 
