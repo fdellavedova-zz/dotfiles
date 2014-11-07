@@ -333,7 +333,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_data_directory = "~/.unite"
 
 " General fuzzy search
-nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async file/new directory/new<CR>
+nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=fles buffer bookmark file_rec/async file_mru file/new directory/new<CR>
 " Quick registers
 nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
 " Quick yank history
