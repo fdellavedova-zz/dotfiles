@@ -212,7 +212,7 @@ exec --no-startup-id gnome-settings-daemon  # and gtk themes
 exec --no-startup-id nitrogen --restore  # desktop background
 exec --no-startup-id redshift -l 52:13  # redshift
 exec --no-startup-id xset dpms 300  # screensaver
-exec --no-startup-id gnome-do  # app launcher
+exec --no-startup-id synapse  # app launcher
 exec --no-startup-id xcompmgr -cf -r 0 -D 6  # composition
 
 # media keys

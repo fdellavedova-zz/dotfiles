@@ -21,6 +21,9 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
 Plug 'myusuf3/numbers.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
 call plug#end()
 
@@ -267,7 +270,7 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``  " trim white spacec on save"
 """"""""""""""""""""""""""""""""""""""""""
 " => Plugin-specific configuration
 """"""""""""""""""""""""""""""""""""""""""
-" airline
+" Airline
 set laststatus=2
 let g:airline_theme  = 'base16'
 let g:airline#extensions#tabline#enabled = 1
@@ -282,6 +285,10 @@ nnoremap <leader>6 :buffer 6<CR>
 nnoremap <leader>7 :buffer 7<CR>
 nnoremap <leader>8 :buffer 8<CR>
 nnoremap <leader>9 :buffer 9<CR>
+
+" Snipmate
+imap ss <esc>a<Plug>snipMateNextOrTrigger
+smap ss <Plug>snipMateNextOrTrigger
 
 " Vimfiler
 let NERDTreeIgnore = ['\.pyc$']
