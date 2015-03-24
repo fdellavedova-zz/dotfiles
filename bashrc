@@ -127,3 +127,5 @@ man() {
 	    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
 	    man "$@"
     }
+
+export TERM=xterm-256color

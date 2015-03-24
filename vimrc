@@ -6,18 +6,22 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimfiler.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala'}
+Plug 'mattn/emmet-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
+Plug 'myusuf3/numbers.vim'
+Plug 'heavenshell/vim-pydocstring'
 
 call plug#end()
 
@@ -49,6 +53,9 @@ set clipboard=unnamedplus
 """"""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""
+" Show line numbers
+set number
+
 " Enable mouse
 set mouse=a
 
@@ -134,6 +141,8 @@ nmap <silent> <A-Down> :wincmd j<CR>
 nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
 
+" different color after 80th column
+let &colorcolumn=join(range(81,999),",")
 
 """"""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -200,6 +209,10 @@ set wrap "Wrap lines
 " Python-style folding
 set foldmethod=indent
 
+" Split opening more natural
+set splitbelow
+set splitright
+
 """"""""""""""""""""
 " => Visual mode related
 """""""""""""""""""""
@@ -259,7 +272,7 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``  " trim white spacec on save"
 """"""""""""""""""""""""""""""""""""""""""
 " => Plugin-specific configuration
 """"""""""""""""""""""""""""""""""""""""""
-" airline
+" Airline
 set laststatus=2
 let g:airline_theme  = 'base16'
 let g:airline#extensions#tabline#enabled = 1
@@ -275,9 +288,7 @@ nnoremap <leader>7 :buffer 7<CR>
 nnoremap <leader>8 :buffer 8<CR>
 nnoremap <leader>9 :buffer 9<CR>
 
-
-" NerdTree
-nmap <leader>ne :NERDTree<cr>
+" Vimfiler
 let NERDTreeIgnore = ['\.pyc$']
 
 " Python Mode
@@ -288,6 +299,8 @@ let g:pymode_lint_cwindow = 0
 
 " Emmet
 let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,htmldjango EmmetInstall
 
 " NERD Commenter
 let NERDSpaceDelims = 1 
@@ -319,12 +332,13 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
     \ '\.ropeproject/',
     \ '.pyc',
     \ ], '\|'))
+call unite#custom_source('file_mru', 'max_candidates', 4)
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
 let g:unite_data_directory = "~/.unite"
 
 " General fuzzy search
-nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async file/new directory/new<CR>
+nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=fles buffer bookmark file_rec/async file_mru file/new directory/new<CR>
 " Quick registers
 nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
 " Quick yank history
@@ -347,4 +361,6 @@ nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mapping mapping<CR>
 nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
 " Quick commands
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
+" Vimfiler
+nnoremap <silent> <leader>f :VimFiler<CR>
 
