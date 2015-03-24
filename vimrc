@@ -21,9 +21,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
 Plug 'myusuf3/numbers.vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+Plug 'heavenshell/vim-pydocstring'
 
 call plug#end()
 
@@ -211,6 +209,10 @@ set wrap "Wrap lines
 " Python-style folding
 set foldmethod=indent
 
+" Split opening more natural
+set splitbelow
+set splitright
+
 """"""""""""""""""""
 " => Visual mode related
 """""""""""""""""""""
@@ -285,10 +287,6 @@ nnoremap <leader>6 :buffer 6<CR>
 nnoremap <leader>7 :buffer 7<CR>
 nnoremap <leader>8 :buffer 8<CR>
 nnoremap <leader>9 :buffer 9<CR>
-
-" Snipmate
-imap ss <esc>a<Plug>snipMateNextOrTrigger
-smap ss <Plug>snipMateNextOrTrigger
 
 " Vimfiler
 let NERDTreeIgnore = ['\.pyc$']
