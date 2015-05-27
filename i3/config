@@ -36,7 +36,7 @@ client.urgent           #3498DB #2C3E50 #ECF0F1 #2C3E50
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec sakura -x zsh # -f "Terminus (TTF)"
+bindsym $mod+Return exec xfce4-terminal -x zsh # -f "Terminus (TTF)"
 
 # kill focused window
 bindsym $mod+Shift+q kill
