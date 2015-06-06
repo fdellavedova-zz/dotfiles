@@ -46,13 +46,15 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
-export PATH=$PATH:$HOME/bin/sbt/bin
-export PATH=$PATH:$HOME/bin/activator-1.2.12
+export PATH=$PATH:$HOME/.packages/sbt/bin
+export PATH=$PATH:$HOME/.packages/activator
 export WORKON_HOME=~/.venvs 
+export TERM=xterm-256color
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # Colorized manpages (script in https://gist.github.com/Eltiech/a93054a6ad057d006ade)
 source $HOME/.mancolor.sh
+source $HOME/.opp.zsh
 
 # Base16 Shell
 BASE16_SCHEME="bespin"
