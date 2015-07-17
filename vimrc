@@ -1,4 +1,3 @@
-set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
@@ -9,6 +8,7 @@ Plug 'Shougo/unite-outline'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'chriskempson/base16-vim'
+Plug 'jdkanani/vim-material-theme'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
@@ -153,7 +153,7 @@ syntax enable
 set background=dark
 " Access colors present in 256 colorspace
 let base16colorspace=256  
-colorscheme base16-default
+colorscheme base16-paraiso
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -307,18 +307,6 @@ autocmd FileType html,css,htmldjango EmmetInstall
 let NERDSpaceDelims = 1 
 autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
-" Close all open buffers on entering a window if the only
-" buffer that's left is the NERDTree buffer
-function! s:CloseIfOnlyNerdTreeLeft()
-  if exists("t:NERDTreeBufName")
-    if bufwinnr(t:NERDTreeBufName) != -1
-      if winnr("$") == 1
-        q
-      endif
-    endif
-  endif
-endfunction
-
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
@@ -339,7 +327,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_data_directory = "~/.unite"
 
 " General fuzzy search
-nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer bookmark file_rec/async file_mru file/new directory/new<CR>
+nnoremap <silent> <space><space> :<C-u>Unite -buffer-name=files buffer bookmark file_rec/async file_mru file/new directory/new<CR>
 " Quick registers
 nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
 " Quick yank history
@@ -359,9 +347,9 @@ nnoremap <silent> <leader>l :<C-u>Unite -buffer-name=search_file line<CR>
 " Quick MRU search
 nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mapping mapping<CR>
 " Quick find
-nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
+nnoremap <silent> <leader>f :<C-u>Unite -buffer-name=find find:.<CR>
 " Quick commands
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
 " Vimfiler
-nnoremap <silent> <leader>f :VimFiler<CR>
+nnoremap <silent> <leader><space> :VimFiler<CR>
 
