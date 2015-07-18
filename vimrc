@@ -289,7 +289,8 @@ nnoremap <leader>8 :buffer 8<CR>
 nnoremap <leader>9 :buffer 9<CR>
 
 " Vimfiler
-let NERDTreeIgnore = ['\.pyc$']
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_ignore_pattern = '\%(.pyc\|.ropeproject\|__pycache__\|\.git\)$'
 
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
