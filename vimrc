@@ -21,7 +21,8 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
 Plug 'myusuf3/numbers.vim'
-Plug 'heavenshell/vim-pydocstring'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -277,16 +278,6 @@ set laststatus=2
 let g:airline_theme  = 'base16'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
-" with the buffer number on top, switch buffer with leader+buffer num
-nnoremap <leader>1 :buffer 1<CR>
-nnoremap <leader>2 :buffer 2<CR>
-nnoremap <leader>3 :buffer 3<CR>
-nnoremap <leader>4 :buffer 4<CR>
-nnoremap <leader>5 :buffer 5<CR>
-nnoremap <leader>6 :buffer 6<CR>
-nnoremap <leader>7 :buffer 7<CR>
-nnoremap <leader>8 :buffer 8<CR>
-nnoremap <leader>9 :buffer 9<CR>
 
 " Vimfiler
 let g:vimfiler_as_default_explorer = 1
@@ -305,7 +296,6 @@ autocmd FileType html,css,htmldjango EmmetInstall
 
 " NERD Commenter
 let NERDSpaceDelims = 1 
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Unite
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -353,3 +343,4 @@ nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
 " Vimfiler
 nnoremap <silent> <leader><space> :VimFiler<CR>
 
+let g:UltiSnipsExpandTrigger='<c-l>'
