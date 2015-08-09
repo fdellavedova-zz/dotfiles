@@ -153,7 +153,7 @@ syntax enable
 set background=dark
 " Access colors present in 256 colorspace
 let base16colorspace=256  
-colorscheme base16-default
+colorscheme base16-paraiso
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -338,8 +338,6 @@ let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
 let g:unite_data_directory = "~/.unite"
 
-" General fuzzy search
-nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=file buffer bookmark file_rec/async file_mru file/new directory/new<CR>
 " Quick registers
 nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
 " Quick yank history
@@ -359,10 +357,10 @@ nnoremap <silent> <leader>l :<C-u>Unite -buffer-name=search_file line<CR>
 " Quick MRU search
 nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mapping mapping<CR>
 " Quick find
-nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
+nnoremap <silent> <leader>f :<C-u>Unite -buffer-name=find find:.<CR>
 " Quick commands
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
 " Vimfiler
-nnoremap <silent> <leader>f :VimFiler<CR>
-
+nnoremap <silent> <leader><space> :VimFiler<CR>
+" General fuzzy search
 nnoremap <silent> <space><space> :<C-u>Unite -buffer-name=file buffer bookmark file_rec/async file_mru file/new directory/new<CR>
