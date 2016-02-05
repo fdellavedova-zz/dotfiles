@@ -21,7 +21,7 @@ antigen bundle tmuxinator
 antigen bundle vundle
 antigen bundle colored-man-pages
 antigen bundle command-not-found
-antigen-bundle hlissner/zsh-autopair
+antigen bundle sroze/docker-compose-zsh-plugin
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions src
 antigen bundle rupa/z
