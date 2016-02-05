@@ -6,19 +6,22 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite-outline'
+Plug 'Shougo/vimfiler.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
+Plug 'derekwyatt/vim-scala', { 'for': 'scala'}
 Plug 'mattn/emmet-vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'kshenoy/vim-signature'
 Plug 'tmhedberg/SimpylFold'
+Plug 'myusuf3/numbers.vim'
+Plug 'heavenshell/vim-pydocstring'
 
 call plug#end()
 
@@ -50,6 +53,9 @@ set clipboard=unnamedplus
 """"""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""
+" Show line numbers
+set number
+
 " Enable mouse
 set mouse=a
 
@@ -147,7 +153,7 @@ syntax enable
 set background=dark
 " Access colors present in 256 colorspace
 let base16colorspace=256  
-colorscheme base16-default
+colorscheme base16-paraiso
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -202,6 +208,10 @@ set wrap "Wrap lines
 
 " Python-style folding
 set foldmethod=indent
+
+" Split opening more natural
+set splitbelow
+set splitright
 
 """"""""""""""""""""
 " => Visual mode related
@@ -262,7 +272,7 @@ autocmd BufWritePre *.py normal m`:%s/\s\+$//e ``  " trim white spacec on save"
 """"""""""""""""""""""""""""""""""""""""""
 " => Plugin-specific configuration
 """"""""""""""""""""""""""""""""""""""""""
-" airline
+" Airline
 set laststatus=2
 let g:airline_theme  = 'base16'
 let g:airline#extensions#tabline#enabled = 1
@@ -278,10 +288,9 @@ nnoremap <leader>7 :buffer 7<CR>
 nnoremap <leader>8 :buffer 8<CR>
 nnoremap <leader>9 :buffer 9<CR>
 
-
-" NerdTree
-nmap <leader>ne :NERDTree<cr>
-let NERDTreeIgnore = ['\.pyc$']
+" Vimfiler
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_ignore_pattern = '\%(.pyc\|.ropeproject\|__pycache__\|\.git\)$'
 
 " Python Mode
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace();   ## XXX  BREAKPOINT'
@@ -329,8 +338,6 @@ let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
 let g:unite_data_directory = "~/.unite"
 
-" General fuzzy search
-nnoremap <silent> <leader><space> :<C-u>Unite -buffer-name=files buffer file_mru bookmark file_rec/async file/new directory/new<CR>
 " Quick registers
 nnoremap <silent> <leader>r :<C-u>Unite -buffer-name=register register<CR>
 " Quick yank history
@@ -350,7 +357,10 @@ nnoremap <silent> <leader>l :<C-u>Unite -buffer-name=search_file line<CR>
 " Quick MRU search
 nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mapping mapping<CR>
 " Quick find
-nnoremap <silent> <leader>n :<C-u>Unite -buffer-name=find find:.<CR>
+nnoremap <silent> <leader>f :<C-u>Unite -buffer-name=find find:.<CR>
 " Quick commands
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
-
+" Vimfiler
+nnoremap <silent> <leader><space> :VimFiler<CR>
+" General fuzzy search
+nnoremap <silent> <space><space> :<C-u>Unite -buffer-name=file buffer bookmark file_rec/async file_mru file/new directory/new<CR>

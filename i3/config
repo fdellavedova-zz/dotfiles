@@ -36,7 +36,7 @@ client.urgent           #3498DB #2C3E50 #ECF0F1 #2C3E50
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec sakura -x zsh # -f "Terminus (TTF)"
+bindsym $mod+Return exec xfce4-terminal -x zsh # -f "Terminus (TTF)"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -142,10 +142,11 @@ assign [class="Vstudio"] "      V      "
 for_window [class="Firefox"] focus
 for_window [class="Pidgin"] focus
 for_window [class="Vstudio"] focus
-for_window [class="Spotify"] move scratchpad
+# for_window [class="Spotify"] move scratchpad
 
 # app specific configurations
-for_window [class="Do"] border none
+# remove window borders
+for_window [class="Synapse"] border none
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -209,10 +210,12 @@ exec --no-startup-id dropbox start  # Dropbox sync service
 exec --no-startup-id nm-applet  # network manager
 exec --no-startup-id gnome-settings-daemon  # and gtk themes
 exec --no-startup-id nitrogen --restore  # desktop background
-exec --no-startup-id redshift -l 52:13  # redshift
+exec --no-startup-id redshift -l 52:13  # redshift for Berlin
 exec --no-startup-id xset dpms 300  # screensaver
-exec --no-startup-id gnome-do  # app launcher
+exec --no-startup-id synapse  # app launcher
 exec --no-startup-id xcompmgr -cf -r 0 -D 6  # composition
+exec --no-startup-id xfce4-power-manager # power manager oh!
+exec --no-startup-id caffeine-indicator # prevents screensaver
 
 # media keys
 bindsym XF86AudioMute exec  amixer -D pulse set Master 1+ toggle && killall -USR1 i3status
