@@ -1,3 +1,4 @@
+# Viratualenvwrapper environments directory
 export WORKON_HOME=~/.venvs 
 
 # Base16 Shell
@@ -10,6 +11,8 @@ source $HOME/.antigen/antigen.zsh
 
 antigen-use oh-my-zsh
 antigen-bundle git
+antigen bundle pyenv
+antigen bundle python
 antigen bundle pip
 antigen bundle celery
 antigen bundle virtualenv
@@ -27,11 +30,11 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions src
 antigen bundle rupa/z
 antigen bundle nyan
-antigen bundle rutchkiwi/copyzshell
+antigen bundle taskwarrior
 antigen bundle chrissicool/zsh-256color
 antigen-bundle arialdomartini/oh-my-git
-antigen theme arialdomartini/oh-my-git-themes arialdo-granzestyle
-# antigen theme sorin
+
+antigen theme jnrowe
 antigen apply
 antigen selfupdate
 
