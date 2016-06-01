@@ -129,3 +129,12 @@ man() {
     }
 
 export TERM=xterm-256color
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/francesco/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/home/francesco/google-cloud-sdk/completion.bash.inc'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

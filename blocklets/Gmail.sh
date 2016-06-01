@@ -1,6 +1,6 @@
 
-USER=user
-PASS=pass
+USER=francesco.dellavedova@rocket-internet.de
+PASS=jrbtypawrmphdlvb
  
 COUNT=`curl -su $USER:$PASS https://mail.google.com/mail/feed/atom || echo "<fullcount>unknown number of</fullcount>"`
 COUNT=`echo "$COUNT" | grep -oPm1 "(?<=<fullcount>)[^<]+" `
