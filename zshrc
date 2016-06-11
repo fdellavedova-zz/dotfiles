@@ -1,5 +1,3 @@
-# Viratualenvwrapper environments directory
-export WORKON_HOME=~/.venvs 
 
 # Base16 Shell
 BASE16_SCHEME="bespin"
@@ -39,7 +37,20 @@ antigen apply
 antigen selfupdate
 
 # LMAO
-fortune -s -n 300 | cowsay 
+fortune -s -n 300 | cowsay -f bong
 
 # https://github.com/nvbn/thefuck
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+ 
+# Anaconda
+export PATH=$PATH:/opt/anaconda3/bin
+# Viratualenvwrapper environments directory
+# set to conda envs
+export WORKON_HOME=~/.venvs
+source '/home/francesco/google-cloud-sdk/completion.bash.inc'
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/francesco/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/home/francesco/google-cloud-sdk/completion.zsh.inc'
