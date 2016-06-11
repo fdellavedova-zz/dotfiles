@@ -47,6 +47,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+l exec "/usr/bin/chromium-browser --show-app-list"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -135,6 +136,8 @@ for_window [class="Vstudio"] focus
 # app specific configurations
 # remove window borders
 for_window [class="Synapse"] border none
+# always floating
+for_window [instance="chromium_app_list"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -179,7 +182,7 @@ bindsym $mod+minus scratchpad show
 # finds out, if available)
 bar {
         position top
-        font pango:Source Sans Pro-10 10
+        # font pango:Source Sans Pro-10 10
         # status_command i3status
         status_command i3blocks -c ~/.i3/i3blocks.conf
 	                            #border backgr. text
@@ -207,6 +210,8 @@ exec --no-startup-id synapse  # app launcher
 exec --no-startup-id xcompmgr -cf -r 0 -D 6  # composition
 exec --no-startup-id xfce4-power-manager # power manager oh!
 exec --no-startup-id caffeine-indicator # prevents screensaver
+exec --no-startup-id nylas --background # email client
+exec --no-startup-id xautolock -time 5 -locker "lock -f monofur-italic" # i3lock-fancy
 
 # media keys
 bindsym XF86AudioMute exec  amixer -D pulse set Master 1+ toggle && killall -USR1 i3status

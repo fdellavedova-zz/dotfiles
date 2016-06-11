@@ -12,6 +12,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'tmhedberg/SimpylFold', { 'for': 'python' }
 Plug 'derekwyatt/vim-scala', { 'for': 'scala'}
